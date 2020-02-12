@@ -1,0 +1,55 @@
+html,
+body {
+    background-color: lightgray;
+    font-family: "Helvetica Neue";
+    margin: 0;
+    height: 100%;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 1em; /* Height of footer */
+    min-height: 95%;
+}
+
+#top-header {
+    text-align: center; color: #782F40;
+}
+
+#footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#image-form {
+    text-align: center;
+}
+
+.table-wrapper {
+    text-align: center;
+}
+
+#table-title {
+    text-align: center; color: #782F40;
+}
+
+#results-table {
+    width: 30%;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+table {
+    background-color: rgb(240, 220, 178);
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: gray;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
