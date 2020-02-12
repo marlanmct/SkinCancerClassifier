@@ -17,8 +17,18 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
+    return render_template('index.html')
+
+
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/classify/', methods=['GET', 'POST'])
+def classify():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -35,7 +45,7 @@ def index():
             # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('results',
                                     filename=file.filename))
-    return render_template('index.html')
+    return render_template('classify.html')
 
 
 @app.route('/results/<filename>')
@@ -44,3 +54,8 @@ def results(filename):
     
     #send_from_directory(app.config['UPLOAD_FOLDER'],
     #                           filename)
+
+
+@app.route('/links/')
+def links():
+    return render_template('links.html')
