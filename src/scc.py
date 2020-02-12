@@ -17,6 +17,9 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+@app.errorhandler(404)
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -59,3 +62,7 @@ def results(filename):
 @app.route('/links/')
 def links():
     return render_template('links.html')
+
+
+def not_found(e):
+  return render_template('404.html')
