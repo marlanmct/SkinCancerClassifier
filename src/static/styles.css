@@ -1,3 +1,5 @@
+/*style for base.html*/
+
 html,
 body {
     background-color: lightgray;
@@ -63,6 +65,11 @@ nav {
   box-shadow: 0 6px 8px 0 rgba(32,33,36,0.28);
 }
 
+nav h1 {
+    margin: 0;
+    padding: 0;
+    color: tomato;
+}
 nav ul {
     list-style-type: none;
 }
@@ -83,4 +90,20 @@ nav li a {
 nav li a:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.nav-wrapper {
+    margin: 0;
+    float: right;
+}
+
+.nav-header {
+    margin: 0;
+    padding: 0;
+    color: tomato;
+}
+
+/*Styling for Index Page*/
+.index-welcome {
+    text-align: center;
 }
