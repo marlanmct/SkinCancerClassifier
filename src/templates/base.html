@@ -15,26 +15,29 @@
 <body>
     <div class="wrapper">
         <header>
+            
             <nav class="navbar">
-                <ul>
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('classify') }}">Classify Image</a></li>
-                    <li><a href="{{ url_for('links') }}">Links</a></li>
-                </ul>
+                <div class="nav-header">
+                    <h1>Skin Cancer Classifier</h1>
+                </div>
+                
+                <div class="nav-wrapper">
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('classify') }}">Classify Image</a></li>
+                        <li><a href="{{ url_for('links') }}">Links</a></li>
+                    </ul>
+                </div>
             </nav>
-            <div id="top-header"><h1>Skin Cancer Classifier</h1></div>
+            
         </header>
         <div id="content">{% block content %}{% endblock %}</div>
         <div id="footer">
             {% block footer %}
             <div class="footer_icons">
-                <a href="https://www.facebook.com/ACMatFSU/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://discord.gg/4z3hNMA" target="_blank"><i class="fab fa-discord"></i></a>
-                <a href="https://github.com/FSU-ACM" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/ACMatFSU" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/groups/12238485" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:contact@fsu.acm.org"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mmcinnestaylor/skin-cancer-classifier" target="_blank"><i class="fab fa-github"></i></a>
+                <a href={{ email }}><i class="fas fa-envelope"></i></a>
             </div>
             Copyright &copy; 2020 <a href="https://marlanmcinnestaylor.com/">Marlan McInnes-Taylor</a>
             {% endblock %}
