@@ -131,3 +131,4 @@ dmypy.json
 src/runApp.sh
 src/runCond.sh
 src/config.py
+src/config.py
