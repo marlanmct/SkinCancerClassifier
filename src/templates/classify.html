@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Classify | {% endblock %}
 {% block content %}
-<div id="image-form">
-    <h3>Clasify Image</h3>
-    <form method=post enctype=multipart/form-data>
-        <input type=file name=file />
-        <input type=submit value=Upload />
-    </form>
+<div class="page-title"><h1>Classify Image</h1></div>
+<div class="content-box">
+    <div class="image-form">
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file />
+            <input type=submit value=Predict />
+            </form>
+        </form>
+        <p>This system uses a statistical approach to pattern recognition and classification. It is not a diagnosis.</p>
+    </div>
 </div>
 {% endblock %}
 
