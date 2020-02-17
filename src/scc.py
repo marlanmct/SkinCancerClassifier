@@ -1,21 +1,16 @@
 import os
-import config
+import config, utils
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
 
-UPLOAD_FOLDER = '../uploads/'
+UPLOAD_FOLDER = config.uploads
 # ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.errorhandler(404)
@@ -44,9 +39,9 @@ def classify():
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            # filename = secure_filename(file.filename)
-            # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        if file and utils.allowed_file(file.filename, ALLOWED_EXTENSIONS):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('results',
                                     filename=file.filename))
     return render_template('classify.html', email=config.email)
@@ -54,10 +49,16 @@ def classify():
 
 @app.route('/results/<filename>')
 def results(filename):
-    return render_template('results.html', email=config.email)
+    # cloud ML call goes here
+    # below for testing
+    resultsDict = {1: float(100), 2: float(99), 3: float(98), 4: float(97), 5: float(96), 6: float(95), 7: float(94)}
+
+    return render_template('results.html', filename=filename, results=resultsDict, email=config.email)
     
-    #send_from_directory(app.config['UPLOAD_FOLDER'],
-    #                           filename)
+
+@app.route('/uploads/<path:filename>')
+def uploads(filename):
+    return send_from_directory(app.root_path + '/' + config.uploads, filename)
 
 
 @app.route('/links/')
