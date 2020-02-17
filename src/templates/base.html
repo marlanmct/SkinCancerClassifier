@@ -11,26 +11,20 @@
     <title>{% block title %}{% endblock %}Skin Cancer Classifier</title>
     {% endblock %}
 </head>
-
 <body>
     <div class="wrapper">
         <header>
-            
-            <nav class="navbar">
-                <div class="nav-header">
+            <nav class="navbar">                    
+                <ul>
                     <h1>Skin Cancer Classifier</h1>
-                </div>
-                
-                <div class="nav-wrapper">
-                    <ul>
+                    <div class="nav-wrapper">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <li><a href="{{ url_for('about') }}">About</a></li>
                         <li><a href="{{ url_for('classify') }}">Classify Image</a></li>
                         <li><a href="{{ url_for('links') }}">Links</a></li>
-                    </ul>
-                </div>
+                    </div>
+                </ul>
             </nav>
-            
         </header>
         <div id="content">{% block content %}{% endblock %}</div>
         <div class="footer">
