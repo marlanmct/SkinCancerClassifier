@@ -132,3 +132,10 @@ src/runApp.sh
 src/runCond.sh
 src/config.py
 src/config.py
+src/config.py
+data/train-set.csv
+data/test-set.csv
+data/preProcess.ipynb
+data/ISIC2018_Task3_Training_GroundTruth.csv
+data/dict.txt
+data/.csv
