@@ -1,46 +1,56 @@
 {% extends "base.html" %}
 {% block title %}Results | {% endblock %}
 {% block content %}
-    <div class="table-wrapper">
-        <div id="results-table">
-            <table align = "center">
-                <caption>
-                    <div id="table-title">
-                        <strong>Results</strong>
+    <div class="page-title"><h1>Results</h1></div>
+    <div class="content-box">
+        <div class="image-display">
+            <h2>Your Image</h2>
+            {% if filename %}
+            <img src="{{ url_for('uploads', filename=filename) }}" height="300" width="300"/>
+            {% else %}
+            <p>Problem Uploading Image</p>
+            {% endif %}
+        </div>
+        <div class="table-wrapper"></div>
+            <div class="results-table">
+                <table align = "center">
+                    <div id="table-labels">
+                        <tr>
+                            <th>Cancer Type</th>
+                            <th>Match Liklihood</th>
+                        </tr>
                     </div>
-                </caption>
-                <div id="table-labels">
+                    
                     <tr>
-                        <th>Cancer Type</th>
-                        <th>Match Liklihood</th>
+                        <td><a href="">Melanoma</a></td>
+                        <td>{{ results[1] }}%</td>
                     </tr>
-                </div>
-                
-                <tr>
-                    <td><a href="">Type 1</a></td>
-                    <td>%</td>
-                </tr>
-                <tr>
-                    <td><a href="">Type 2</a></td>
-                    <td>%</td>
-                </tr>
-                <tr>
-                    <td><a href="">Type 3</a></td>
-                    <td>%</td>
-                </tr>
-                <tr>
-                    <td><a href="">Type 4</a></td>
-                    <td>%</td>
-                </tr>
-                <tr>
-                    <td><a href="">Type 5</a></td>
-                    <td>%</td>
-                </tr>
-                <tr>
-                    <td><a href="">Type 6</a></td>
-                    <td>%</td>
-                </tr>
-            </table>
+                    <tr>
+                        <td><a href="">Melanocytic nevus</a></td>
+                        <td>{{ results[2] }}%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Basal cell carcinoma</a></td>
+                        <td>{{ results[3] }}%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Actinic keratosis / Bowen’s disease)</a></td>
+                        <td>{{ results[4] }}%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Benign keratosis</a></td>
+                        <td>{{ results[5] }}%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Dermatofibroma</a></td>
+                        <td>{{ results[6] }}%</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Vascular lesion</a></td>
+                        <td>{{ results[7] }}%</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 {% endblock %}
