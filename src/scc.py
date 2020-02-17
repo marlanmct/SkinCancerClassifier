@@ -1,4 +1,5 @@
 import os
+import config
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
@@ -22,12 +23,12 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', email=config.email)
 
 
 @app.route('/about/')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', email=config.email)
 
 
 @app.route('/classify/', methods=['GET', 'POST'])
@@ -48,12 +49,12 @@ def classify():
             # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('results',
                                     filename=file.filename))
-    return render_template('classify.html')
+    return render_template('classify.html', email=config.email)
 
 
 @app.route('/results/<filename>')
 def results(filename):
-    return render_template('results.html')
+    return render_template('results.html', email=config.email)
     
     #send_from_directory(app.config['UPLOAD_FOLDER'],
     #                           filename)
@@ -61,8 +62,8 @@ def results(filename):
 
 @app.route('/links/')
 def links():
-    return render_template('links.html')
+    return render_template('links.html', email=config.email)
 
 
 def not_found(e):
-  return render_template('404.html')
+  return render_template('404.html', email=config.email)
