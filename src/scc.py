@@ -1,12 +1,12 @@
 import os
 import config, utils
+import model.label_image as model
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
 
 UPLOAD_FOLDER = config.uploads
-# ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -49,11 +49,8 @@ def classify():
 
 @app.route('/results/<filename>')
 def results(filename):
-    # cloud ML call goes here
-    # below for testing
-    resultsDict = {1: float(100), 2: float(99), 3: float(98), 4: float(97), 5: float(96), 6: float(95), 7: float(94)}
-
-    return render_template('results.html', filename=filename, results=resultsDict, email=config.email)
+    duration, results = model.predict(url_for('uploads', filename=filename))
+    return render_template('results.html', filename=filename, duration=duration, results=results, email=config.email)
     
 
 @app.route('/uploads/<path:filename>')
