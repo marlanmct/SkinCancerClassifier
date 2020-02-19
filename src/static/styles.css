@@ -142,3 +142,11 @@ tr:nth-child(even) {background-color: whitesmoke;}
 /*Styling for Classify page*/
 .image-form {text-align: center;}
 .red-star {color: red;}
+
+/*misc styling*/
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
