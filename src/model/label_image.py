@@ -71,6 +71,7 @@ def load_labels(label_file):
 def predict(file_name):
   #file_name = "tf_files/flower_photos/daisy/3475870145_685a19116d.jpg"
   file_name='..'+file_name
+  # file_name = '.'+file_name
   model_file = "model/retrained_graph.pb"
   label_file = "model/retrained_labels.txt"
   input_height = 299
