@@ -21,35 +21,12 @@
                             <th>Match Liklihood</th>
                         </tr>
                     </div>
-                    
-                    <tr>
-                        <td><a href="">Melanoma</a></td>
-                        <td>{{ '%0.2f' % results['mel']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Melanocytic nevus</a></td>
-                        <td>{{ '%0.2f' % results['nv']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Basal cell carcinoma</a></td>
-                        <td>{{ '%0.2f' % results['bcc']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Actinic keratosis / Bowen’s disease)</a></td>
-                        <td>{{ '%0.2f' % results['akiec']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Benign keratosis</a></td>
-                        <td>{{ '%0.2f' % results['bkl']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Dermatofibroma</a></td>
-                        <td>{{ '%0.2f' % results['df']|float }}%</td>
-                    </tr>
-                    <tr>
-                        <td><a href="">Vascular lesion</a></td>
-                        <td>{{ '%0.2f' % results['vasc']|float }}%</td>
-                    </tr>
+                    {% for label, percent in results.values() %}
+                        <tr>
+                            <td><a href="">{{ label }}</a></td>
+                            <td>{{ '%0.2f' % percent|float }}%</td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
