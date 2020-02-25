@@ -139,3 +139,6 @@ data/preProcess.ipynb
 data/ISIC2018_Task3_Training_GroundTruth.csv
 data/dict.txt
 data/.csv
+
+/scripts
+/uploads/*
