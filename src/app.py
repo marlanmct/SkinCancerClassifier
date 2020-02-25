@@ -1,6 +1,7 @@
 import os
 import config, utils
 import model.label_image as model
+import model.classes as classes
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
@@ -18,12 +19,12 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 @app.route('/')
 def index():
-    return render_template('index.html', email=config.email)
+    return render_template('index.html', email=config.email, github=config.github)
 
 
 @app.route('/about/')
 def about():
-    return render_template('about.html', email=config.email)
+    return render_template('about.html', email=config.email, github=config.github)
 
 
 @app.route('/classify/', methods=['GET', 'POST'])
@@ -44,13 +45,14 @@ def classify():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('results',
                                     filename=file.filename))
-    return render_template('classify.html', email=config.email)
+    return render_template('classify.html', email=config.email, github=config.github)
 
 
 @app.route('/results/<filename>')
 def results(filename):
     duration, results = model.predict(url_for('uploads', filename=filename))
-    return render_template('results.html', filename=filename, duration=duration, results=results, email=config.email)
+    results = utils.addClassNames(classes.classNames, results)
+    return render_template('results.html', filename=filename, duration=duration, results=results, email=config.email, github=config.github)
     
 
 @app.route('/uploads/<path:filename>')
@@ -60,12 +62,12 @@ def uploads(filename):
 
 @app.route('/links/')
 def links():
-    return render_template('links.html', email=config.email)
+    return render_template('links.html', email=config.email, github=config.github)
 
 
 def not_found(e):
-  return render_template('404.html', email=config.email)
+  return render_template('404.html', email=config.email, github=config.github)
 
 
 if __name__ == '__main__':
-    app.run(host=config.host, port=8080, debug=True)
+    app.run(host=config.host, port=8080)
