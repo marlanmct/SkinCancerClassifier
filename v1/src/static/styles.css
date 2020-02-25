@@ -1,0 +1,152 @@
+/*style for base.html*/
+
+html,
+body {
+    background-color: lightgray;
+    font-family: "Helvetica Neue";
+    margin: 0;
+    height: 100%;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 1em; /* Height of footer */
+    min-height: 95%;
+}
+
+#top-header {
+    text-align: center; color: #782F40;
+}
+
+.content-box {
+  background-color: #838383;
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/*Nav bar*/
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 6px 8px 0 rgba(32,33,36,0.28);
+}
+
+nav h1 {
+    float: left;
+    padding: 0;
+    margin: 0;
+    color: indianred;
+}
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 0em .75em 0em .75em;
+  text-decoration: none;
+  
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav-wrapper {
+    margin: 0;
+    float: right;
+}
+
+.nav-header {
+    margin: 0;
+    padding: 0;
+}
+
+/*footer area*/
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {color: black;}
+
+.footer a:visited {color: black;}
+
+.footer-icons a {color: indianred;}
+
+.footer-icons a:visited {color: indianred;}
+
+
+
+
+/*Styling for Index Page*/
+.page-title {text-align: center;}
+
+.page-title img {padding-top: 2em;}
+
+/*Styling for About Page*/
+
+/*Styling for Results page*/
+.table-wrapper {
+    display: inline-block;
+    
+}
+
+.results-table { 
+    display: inline-block;
+    text-align: center;
+    width: 45%;
+    vertical-align: middle;
+}
+
+table {
+    background-color: #d3d3d3;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: gray;
+    
+   
+}
+
+th, td {
+  padding: 1em;
+}
+
+.image-display {
+    margin-left: 5.5%;
+    width: 45%;
+    text-align: center;
+    display: inline-block;
+    vertical-align:top;
+}
+
+tr:nth-child(even) {background-color: whitesmoke;}
+
+/*Styling for Classify page*/
+.image-form {text-align: center;}
+.red-star {color: red;}
+
+/*misc styling*/
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

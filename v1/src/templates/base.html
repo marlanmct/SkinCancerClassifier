@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}Skin Cancer Classifier</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar">                    
+                <ul>
+                    <h1>Skin Cancer Classifier</h1>
+                    <div class="nav-wrapper">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('classify') }}">Classify Image</a></li>
+                        <li><a href="{{ url_for('links') }}">Links</a></li>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div class="footer">
+            {% block footer %}
+            <div class="footer-icons">
+                <a href={{ github }} target="_blank"><i class="fab fa-github"></i></a>
+                <a href={{ email }}><i class="fas fa-envelope"></i></a>
+            </div>
+            Copyright &copy; 2020 <a href="https://marlanmcinnestaylor.com/" target="_blank">Marlan McInnes-Taylor</a>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
