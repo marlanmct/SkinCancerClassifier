@@ -1,7 +1,8 @@
 import os
-import config, utils
-import model.label_image as model
-import model.classes as classes
+import src.config as config 
+import src.utils as utils
+import src.model.label_image as model
+import src.model.classes as classes
 from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 
