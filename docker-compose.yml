@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: gunicorn --bind :8080 --access-logfile - --error-logfile - src.app:app
+    ports:
+      - "8080:8080"

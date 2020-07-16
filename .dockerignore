@@ -1,0 +1,19 @@
+# ignore .git and .cache folders
+.git
+.gitignore
+.cache
+Dockerfile
+docker-compose.yml
+Pipfile
+Pipfile.lock
+scripts/
+src/__pycache__/
+src/model/__pycache__/
+src/runApp.sh
+v1/
+.vscode/
+
+# ignore all markdown files (md) beside all README*.md other than README-secret.md
+*.md
+!README*.md
+README-secret.md
