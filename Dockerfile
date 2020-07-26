@@ -25,9 +25,8 @@ COPY ./src/requirements.txt .
 RUN pip3 install cython
 #RUN pip3 install -U numpy grpcio absl-py py-cpuinfo psutil portpicker six mock requests gast h5py astor termcolor protobuf keras-applications keras-preprocessing wrapt google-pasta
 RUN pip3 install -U -r requirements.txt
-RUN pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow==1.15.2+nv20.3
+RUN pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v43 tensorflow
 
 # copy code into image and set as working directory
 COPY . .
-COPY ./src/model/retrained_graph.pb ./src/model/
-WORKDIR ./src/
+WORKDIR /src/
