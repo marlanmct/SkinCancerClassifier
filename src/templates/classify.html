@@ -5,10 +5,7 @@
 <div class="content-box">
     <div class="image-form">
         <span></span>
-        <input type="radio" name="options" id="camera" value="camera"> Camera </input><br>
-        <input type="radio" name="options" id="image" value="image"> File </input><br>
-        <img src="{{ url_for('video_feed') }}">
-
+       <!-- <img src="{{ url_for('video_feed') }}"/>-->
         <form method=post enctype=multipart/form-data>
             <input type=file name=file />
             <input type=submit value=Predict />
