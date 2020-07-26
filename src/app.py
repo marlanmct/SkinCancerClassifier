@@ -143,14 +143,14 @@ def classify():
 @app.route('/results/<filename>')
 def results(filename):
     #load model
-    model_path = os.path.join(app.config['STATIC_FOLDER'], 'scc.model')
+    model_path = os.path.join(app.config['STATIC_FOLDER'], 'model.h5')
     model = load_model(model_path)
 
     # image path
     img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
     # load a single image
-    img = image.load_img(img_path)
+    img = image.load_img(img_path, target_size=(299, 299))
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
 
