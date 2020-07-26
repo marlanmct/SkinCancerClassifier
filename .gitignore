@@ -142,3 +142,4 @@ data/.csv
 
 /scripts
 /uploads/*
+/jupyter/training/saved_models/*
