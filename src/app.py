@@ -1,9 +1,10 @@
-import os,
+import os
 import numpy as np
 from flask import Flask, Response, flash, request, redirect, url_for, render_template, send_from_directory, Response
 from werkzeug.utils import secure_filename
 from keras.models import load_model
 from keras.preprocessing import image
+from keras.applications.inception_v3 import preprocess_input
 
 import classes
 import config 
@@ -66,6 +67,7 @@ def results(filename):
     img = image.load_img(img_path, target_size=(299, 299))
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
+    img = preprocess_input(img)
 
     # check prediction
     pred = model.predict(img)
