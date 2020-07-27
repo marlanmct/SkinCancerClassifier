@@ -9,7 +9,7 @@ Pipfile.lock
 jupyter/
 v1/
 .vscode/
-uploads/*
+#uploads/*
 __pycache__/
 src/__pycache__/
 
