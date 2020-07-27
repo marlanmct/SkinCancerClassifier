@@ -86,11 +86,11 @@ def saveFrame():
     #global thread_lock
     with thread_lock:
         global video_frame
-            if video_frame is None:
-                continue
+        if video_frame is None:
+            pass
         return_key, encoded_image = cv2.imencode(".jpg", video_frame)
-            if not return_key:
-                continue
+        if not return_key:
+            pass
 
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
                 bytearray(encoded_image) + b'\r\n')
